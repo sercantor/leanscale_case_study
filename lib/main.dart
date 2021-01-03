@@ -1,4 +1,5 @@
 import 'package:case_study_leanscale/providers/navigation_provider.dart';
+import 'package:case_study_leanscale/screens/root.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         builder: (context) {
           return MaterialApp(
             onGenerateRoute: NavigationProvider.of(context).onGenerateRoute,
+            home: Root(),
           );
         },
       ),
