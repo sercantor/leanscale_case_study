@@ -11,7 +11,7 @@ class BasketProvider with ChangeNotifier {
 
   void addToBasket(Food val, int index) {
     if (_basket.every((element) => element.food != val)) {
-      _basket.add(BasketItem(food: val, quantity: 1));
+      _basket.insert(index, BasketItem(food: val, quantity: 1));
     } else {
       _basket[index] =
           BasketItem(food: val, quantity: _basket[index].quantity + 1);
@@ -21,9 +21,15 @@ class BasketProvider with ChangeNotifier {
   }
 
   void removeFromBasket(Food val, int index) {
-    _basket[index] =
-        BasketItem(food: val, quantity: _basket[index].quantity - 1);
-    _basketLength--;
+    if (_basket[index].quantity > 1) {
+      _basket[index] =
+          BasketItem(food: val, quantity: _basket[index].quantity - 1);
+      _basketLength--;
+    } else {
+      _basket.removeAt(index);
+      _basketLength--;
+    }
+    print(_basket.length);
     notifyListeners();
   }
 }

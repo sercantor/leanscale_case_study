@@ -3,16 +3,22 @@ import 'dart:convert';
 import 'package:case_study_leanscale/models/food.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FoodProvider with ChangeNotifier {
   List<Food> _foodList;
-  List<Food> _basket;
 
   List<Food> get foodList => _foodList;
-  List<Food> get basket => _basket;
 
-  void addFoodToBasket(Food val) {
-    _basket.add(val);
+  void toggleFav(Food val, int index) {
+    _foodList[index] = Food(
+        category: val.category,
+        id: val.id,
+        imageURL: val.imageURL,
+        isFavourited: !val.isFavourited,
+        name: val.name,
+        price: val.price,
+        quantity: val.quantity);
     notifyListeners();
   }
 
@@ -25,8 +31,7 @@ class FoodProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFoodFromBasket(Food val) {
-    _basket.remove(val);
-    notifyListeners();
+  Future<void> setFavList() async {
+    final prefs = await SharedPreferences.getInstance();
   }
 }

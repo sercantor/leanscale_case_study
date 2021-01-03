@@ -26,7 +26,7 @@ class Food {
   Food.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         name = json['name'],
-        quantity = json['quantiy'],
+        quantity = json['quantity'],
         imageURL = json['imageURL'],
         category = json['category'],
         isFavourited = json['is_favourited'],
