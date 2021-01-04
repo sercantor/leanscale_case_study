@@ -1,4 +1,5 @@
 import 'package:case_study_leanscale/models/screen.dart';
+import 'package:case_study_leanscale/screens/detail_screen.dart';
 import 'package:case_study_leanscale/screens/drink_screen.dart';
 import 'package:case_study_leanscale/screens/fullcourse_screen.dart';
 import 'package:case_study_leanscale/screens/fruit_screen.dart';
@@ -29,6 +30,8 @@ class NavigationProvider with ChangeNotifier {
       onGenerateRoute: (settings) {
         print('Generating route: ${settings.name}');
         switch (settings.name) {
+          case DetailScreen.route:
+            return MaterialPageRoute(builder: (_) => DetailScreen());
           default:
             return MaterialPageRoute(builder: (_) => FullCourseScreen());
         }
@@ -110,6 +113,8 @@ class NavigationProvider with ChangeNotifier {
     print('Generating route: ${settings.name}');
     switch (settings.name) {
       // We can push another screen  here, like settings
+      case DetailScreen.route:
+        return MaterialPageRoute(builder: (_) => DetailScreen());
       case MeatScreen.route:
         return MaterialPageRoute(builder: (_) => MeatScreen());
       case FullCourseScreen.route:

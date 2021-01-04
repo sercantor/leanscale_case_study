@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:case_study_leanscale/models/food.dart';
 import 'package:case_study_leanscale/providers/basket_provider.dart';
 import 'package:case_study_leanscale/providers/food_provider.dart';
+import 'package:case_study_leanscale/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,11 @@ class _FullCourseScreenState extends State<FullCourseScreen> {
   ListTile buildListTile(
       FoodProvider foodProvider, int index, BasketProvider basketProvider) {
     return ListTile(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) =>
+                DetailScreen(food: foodProvider.fullCourseList[index])));
+      },
       leading: CachedNetworkImage(
         imageUrl: foodProvider.fullCourseList[index].imageURL,
         placeholder: (context, url) => CircularProgressIndicator(),

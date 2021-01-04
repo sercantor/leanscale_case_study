@@ -21,14 +21,62 @@ class FoodProvider with ChangeNotifier {
   List<Food> get drinkList => _drinkList;
 
   void toggleFav(Food val, int index) {
-    _foodList[index] = Food(
-        category: val.category,
-        id: val.id,
-        imageURL: val.imageURL,
-        isFavourited: !val.isFavourited,
-        name: val.name,
-        price: val.price,
-        quantity: val.quantity);
+    //TODO: needs fixing, this is horrible.
+    switch (val.category) {
+      case 'Vegetable':
+        _vegetableList[index] = Food(
+            category: val.category,
+            id: val.id,
+            imageURL: val.imageURL,
+            isFavourited: !val.isFavourited,
+            name: val.name,
+            price: val.price,
+            quantity: val.quantity);
+        break;
+      case 'Meat':
+        _meatList[index] = Food(
+            category: val.category,
+            id: val.id,
+            imageURL: val.imageURL,
+            isFavourited: !val.isFavourited,
+            name: val.name,
+            price: val.price,
+            quantity: val.quantity);
+        break;
+      case 'Fruit':
+        _meatList[index] = Food(
+            category: val.category,
+            id: val.id,
+            imageURL: val.imageURL,
+            isFavourited: !val.isFavourited,
+            name: val.name,
+            price: val.price,
+            quantity: val.quantity);
+        break;
+      case 'Drink':
+        _drinkList[index] = Food(
+            category: val.category,
+            id: val.id,
+            imageURL: val.imageURL,
+            isFavourited: !val.isFavourited,
+            name: val.name,
+            price: val.price,
+            quantity: val.quantity);
+        break;
+      case 'FullCourse':
+        _fullCourseList[index] = Food(
+            category: val.category,
+            id: val.id,
+            imageURL: val.imageURL,
+            isFavourited: !val.isFavourited,
+            name: val.name,
+            price: val.price,
+            quantity: val.quantity);
+        break;
+      default:
+        break;
+    }
+
     notifyListeners();
   }
 
