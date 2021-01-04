@@ -23,7 +23,7 @@ class NavigationProvider with ChangeNotifier {
 
   final Map<int, Screen> _screens = {
     FULLCOURSE_SCREEN: Screen(
-      label: 'Ana Sayfa',
+      label: 'Full Course',
       child: FullCourseScreen(),
       initialRoute: FullCourseScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
@@ -39,7 +39,7 @@ class NavigationProvider with ChangeNotifier {
       scrollController: ScrollController(),
     ),
     VEGETABLE_SCREEN: Screen(
-      label: 'Arama',
+      label: 'Vegetables',
       child: VegetableScreen(),
       initialRoute: VegetableScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
@@ -53,7 +53,7 @@ class NavigationProvider with ChangeNotifier {
       scrollController: ScrollController(),
     ),
     MEAT_SCREEN: Screen(
-      label: 'Duyuru',
+      label: 'Meats',
       child: MeatScreen(),
       initialRoute: MeatScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
@@ -67,7 +67,7 @@ class NavigationProvider with ChangeNotifier {
       scrollController: ScrollController(),
     ),
     FRUIT_SCREEN: Screen(
-      label: 'Topluluk',
+      label: 'Fruits',
       child: FruitScreen(),
       initialRoute: FruitScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
@@ -81,7 +81,7 @@ class NavigationProvider with ChangeNotifier {
       scrollController: ScrollController(),
     ),
     DRINK_SCREEN: Screen(
-      label: 'Topluluk',
+      label: 'Drinks',
       child: DrinkScreen(),
       initialRoute: DrinkScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),

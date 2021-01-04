@@ -2,6 +2,7 @@ import 'package:case_study_leanscale/providers/basket_provider.dart';
 import 'package:case_study_leanscale/providers/food_provider.dart';
 import 'package:case_study_leanscale/providers/navigation_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
 import 'basket_screen.dart';
@@ -15,7 +16,8 @@ class Root extends StatelessWidget {
         builder: (context, navigationProvider, child) {
           final bottomNavigationBarItems = navigationProvider.screens
               .map((screen) => BottomNavigationBarItem(
-                  icon: Icon(Icons.ac_unit), label: screen.label))
+                  icon: buildBottomNavBarIcons(screen.label),
+                  label: screen.label))
               .toList();
 
           final screens = navigationProvider.screens
@@ -32,6 +34,11 @@ class Root extends StatelessWidget {
             child: Scaffold(
               appBar: AppBar(
                 actions: [buildBasketIcon(context)],
+                title: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [Icon(Icons.food_bank), Text(' LeanScale')],
+                ),
+                centerTitle: true,
               ),
               body: IndexedStack(
                 children: screens,
@@ -50,6 +57,29 @@ class Root extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Widget buildBottomNavBarIcons(String label) {
+    switch (label) {
+      case 'Full Course':
+        return Icon(Icons.fastfood);
+        break;
+      case 'Vegetables':
+        return Icon(FontAwesome.leaf);
+        break;
+      case 'Meats':
+        return Icon(FontAwesome.heart);
+        break;
+      case 'Fruits':
+        return Icon(FontAwesome.lemon_o);
+        break;
+      case 'Drinks':
+        return Icon(FontAwesome.beer);
+        break;
+      default:
+        return Text('Not Found');
+        break;
+    }
   }
 
   Widget buildBasketIcon(BuildContext context) {

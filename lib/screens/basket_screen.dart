@@ -10,24 +10,41 @@ class BasketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final basketProvider = Provider.of<BasketProvider>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [Icon(Icons.shopping_basket), Text(' Cart')],
+        ),
+        centerTitle: true,
+      ),
       body: ListView.builder(
           itemBuilder: (context, index) => buildListTile(basketProvider, index),
           itemCount: basketProvider.basket.length),
     );
   }
 
-  ListTile buildListTile(BasketProvider basketProvider, int index) {
-    return ListTile(
-      leading: CachedNetworkImage(
-        imageUrl: basketProvider.basket[index].food.imageURL,
-        placeholder: (context, url) => CircularProgressIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
+  Widget buildListTile(BasketProvider basketProvider, int index) {
+    return Container(
+      padding: EdgeInsets.only(top: 20.0),
+      child: ListTile(
+        leading: CachedNetworkImage(
+          imageUrl: basketProvider.basket[index].food.imageURL,
+          placeholder: (context, url) => CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+        ),
+        title: Text(basketProvider.basket[index].food.name),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FlatButton(
+              child: Text('Remove from cart'),
+              onPressed: () => basketProvider.removeFromBasket(
+                  basketProvider.basket[index].food, index),
+            ),
+            Text(basketProvider.basket[index].quantity.toString()),
+          ],
+        ),
       ),
-      title: Text(basketProvider.basket[index].food.name),
-      trailing: Text(basketProvider.basket[index].quantity.toString()),
-      onLongPress: () => basketProvider.removeFromBasket(
-          basketProvider.basket[index].food, index),
     );
   }
 }
