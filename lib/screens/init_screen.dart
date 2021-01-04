@@ -19,6 +19,7 @@ class _InitScreenState extends State<InitScreen> {
 
   Future<void> onStart() async {
     await Provider.of<FoodProvider>(context, listen: false).getFoodList();
+    await Provider.of<FoodProvider>(context, listen: false).categorize();
     await Navigator.of(context)
         .pushReplacement(MaterialPageRoute(builder: (context) => Root()));
   }

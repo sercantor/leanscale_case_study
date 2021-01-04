@@ -11,7 +11,7 @@ class BasketProvider with ChangeNotifier {
 
   void addToBasket(Food val, int index) {
     if (_basket.every((element) => element.food != val)) {
-      _basket.insert(index, BasketItem(food: val, quantity: 1));
+      _basket.add(BasketItem(food: val, quantity: 1));
     } else {
       _basket[index] =
           BasketItem(food: val, quantity: _basket[index].quantity + 1);

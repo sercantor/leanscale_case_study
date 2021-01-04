@@ -18,46 +18,50 @@ class _FullCourseScreenState extends State<FullCourseScreen> {
     final foodProvider = Provider.of<FoodProvider>(context);
     final basketProvider = Provider.of<BasketProvider>(context, listen: false);
     return Container(
-      child: foodProvider.foodList != null
+      child: foodProvider.fullCourseList != null
           ? ListView.builder(
-              itemBuilder: (context, index) => ListTile(
-                leading: CachedNetworkImage(
-                  imageUrl: foodProvider.foodList[index].imageURL,
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                ),
-                title: Text(foodProvider.foodList[index].name),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    FlatButton(
-                      child: Icon(Icons.add),
-                      onPressed: () {
-                        basketProvider.addToBasket(
-                            foodProvider.foodList[index], index);
-                      },
-                    ),
-                    FlatButton(
-                      child: Icon(
-                        Icons.favorite,
-                        color:
-                            foodProvider.foodList[index].isFavourited == false
-                                ? Colors.black
-                                : Colors.red,
-                      ),
-                      onPressed: () {
-                        foodProvider.toggleFav(
-                            foodProvider.foodList[index], index);
-                      },
-                    )
-                  ],
-                ),
-              ),
-              itemCount: foodProvider.foodList.length,
+              itemBuilder: (context, index) =>
+                  buildListTile(foodProvider, index, basketProvider),
+              itemCount: foodProvider.fullCourseList.length,
             )
           : Center(
               child: CircularProgressIndicator(),
             ),
+    );
+  }
+
+  ListTile buildListTile(
+      FoodProvider foodProvider, int index, BasketProvider basketProvider) {
+    return ListTile(
+      leading: CachedNetworkImage(
+        imageUrl: foodProvider.fullCourseList[index].imageURL,
+        placeholder: (context, url) => CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Icon(Icons.error),
+      ),
+      title: Text(foodProvider.fullCourseList[index].name),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FlatButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              basketProvider.addToBasket(
+                  foodProvider.fullCourseList[index], index);
+            },
+          ),
+          FlatButton(
+            child: Icon(
+              Icons.favorite,
+              color: foodProvider.fullCourseList[index].isFavourited == false
+                  ? Colors.black
+                  : Colors.red,
+            ),
+            onPressed: () {
+              foodProvider.toggleFav(foodProvider.fullCourseList[index], index);
+            },
+          )
+        ],
+      ),
     );
   }
 }
