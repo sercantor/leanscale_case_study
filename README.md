@@ -2,20 +2,13 @@
 
 A new Flutter project.
 
-## Getting Started
+I have used Flutter to complete this case study as my cross-platform framework of choice because I am more familiar with languages like C# and Java as opposed to JavaScript, I did not choose React Native. Flutter also has Skia, a graphics engine that actually draws pixels on the screen natively, unlike React Native that has an API to call native components. Although of course, native will still have a performance advantage over Flutter, without the convenience of working in both IOS and Android with one codebase. 
 
-This project is a starting point for a Flutter application.
+In my project I have used the Provider package as my dependency injector as well as a state manager, for bigger projects provider may not be suitable, I also worked with the RxDart package, which makes more sense when you're working with streams. 
 
-A few resources to get you started if this is your first Flutter project:
+My project has a mock data that I have imported through my pubspec yaml, I have an init screen that calls to this mock data before the actual screens are initialized. This is not a good decision as some calls may depend on other calls, but it is the first thing that came into my mind so I went with it.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+I have used Hive as my local data storage solution, I believe it is superior to shared preferences, as it can even store objects of data. You also don't have to worry about future calls, you just init your hive "box" in the main, and the box becomes accesssible anywhere in the app.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 TODO
-- [x] add more mock data
-- [x] favourite 
 - [ ] Checking food category makes me repeat myself, but I don't know how to map JSON data to enum
-- [ ] Shared preferences implementation for favs
