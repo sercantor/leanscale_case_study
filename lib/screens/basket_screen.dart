@@ -17,9 +17,26 @@ class BasketScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
-          itemBuilder: (context, index) => buildListTile(basketProvider, index),
-          itemCount: basketProvider.basket.length),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+                itemBuilder: (context, index) =>
+                    buildListTile(basketProvider, index),
+                itemCount: basketProvider.basket.length),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Text(
+                'Total Price: ${basketProvider.calculatePrice().toString()}',
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

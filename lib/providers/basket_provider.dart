@@ -39,4 +39,12 @@ class BasketProvider with ChangeNotifier {
     print(_basket.length);
     notifyListeners();
   }
+
+  int calculatePrice() {
+    int sum = 0;
+    _basket.forEach((basketItem) {
+      sum += basketItem.food.price * basketItem.quantity;
+    });
+    return sum;
+  }
 }
