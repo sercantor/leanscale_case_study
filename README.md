@@ -18,3 +18,4 @@ TODO
 - [x] add more mock data
 - [x] favourite 
 - [ ] Checking food category makes me repeat myself, but I don't know how to map JSON data to enum
+- [ ] Shared preferences implementation for favs

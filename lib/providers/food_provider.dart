@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:case_study_leanscale/models/food.dart';
+import 'package:case_study_leanscale/services/db/localdb.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class FoodProvider with ChangeNotifier {
   List<Food> _foodList;
@@ -12,6 +12,7 @@ class FoodProvider with ChangeNotifier {
   List<Food> _fruitList = List<Food>();
   List<Food> _fullCourseList = List<Food>();
   List<Food> _vegetableList = List<Food>();
+  LocalDBService _localDB = LocalDBService();
 
   List<Food> get foodList => _foodList;
   List<Food> get meatList => _meatList;
@@ -21,57 +22,22 @@ class FoodProvider with ChangeNotifier {
   List<Food> get drinkList => _drinkList;
 
   void toggleFav(Food val, int index) {
-    //TODO: needs fixing, this is horrible.
+    print(_localDB.isFav(val));
     switch (val.category) {
       case 'Vegetable':
-        _vegetableList[index] = Food(
-            category: val.category,
-            id: val.id,
-            imageURL: val.imageURL,
-            isFavourited: !val.isFavourited,
-            name: val.name,
-            price: val.price,
-            quantity: val.quantity);
+        _localDB.setFav(_vegetableList[index]);
         break;
       case 'Meat':
-        _meatList[index] = Food(
-            category: val.category,
-            id: val.id,
-            imageURL: val.imageURL,
-            isFavourited: !val.isFavourited,
-            name: val.name,
-            price: val.price,
-            quantity: val.quantity);
+        _localDB.setFav(_meatList[index]);
         break;
       case 'Fruit':
-        _meatList[index] = Food(
-            category: val.category,
-            id: val.id,
-            imageURL: val.imageURL,
-            isFavourited: !val.isFavourited,
-            name: val.name,
-            price: val.price,
-            quantity: val.quantity);
+        _localDB.setFav(_fruitList[index]);
         break;
       case 'Drink':
-        _drinkList[index] = Food(
-            category: val.category,
-            id: val.id,
-            imageURL: val.imageURL,
-            isFavourited: !val.isFavourited,
-            name: val.name,
-            price: val.price,
-            quantity: val.quantity);
+        _localDB.setFav(_drinkList[index]);
         break;
       case 'FullCourse':
-        _fullCourseList[index] = Food(
-            category: val.category,
-            id: val.id,
-            imageURL: val.imageURL,
-            isFavourited: !val.isFavourited,
-            name: val.name,
-            price: val.price,
-            quantity: val.quantity);
+        _localDB.setFav(_fullCourseList[index]);
         break;
       default:
         break;
@@ -80,12 +46,11 @@ class FoodProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<Food>> getFoodList() async {
+  Future<void> getFoodList() async {
     String source = await rootBundle.loadString('lib/mock/mockdata.json');
     List<Food> res =
         jsonDecode(source).map<Food>((item) => Food.fromJson(item)).toList();
     _foodList = res;
-    return res;
   }
 
   void categorize() async {
@@ -111,9 +76,5 @@ class FoodProvider with ChangeNotifier {
       }
     });
     notifyListeners();
-  }
-
-  Future<void> setFavList() async {
-    final prefs = await SharedPreferences.getInstance();
   }
 }

@@ -1,13 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:case_study_leanscale/models/food.dart';
 import 'package:case_study_leanscale/providers/basket_provider.dart';
 import 'package:case_study_leanscale/providers/food_provider.dart';
 import 'package:case_study_leanscale/screens/detail_screen.dart';
+import 'package:case_study_leanscale/services/db/localdb.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class FullCourseScreen extends StatelessWidget {
   static const route = '/fullcourse';
+  final localDB = LocalDBService();
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +50,21 @@ class FullCourseScreen extends StatelessWidget {
             FlatButton(
               child: Icon(Icons.add),
               onPressed: () {
-                basketProvider.addToBasket(
-                    foodProvider.fullCourseList[index], index);
+                basketProvider.addToBasket(foodProvider.fullCourseList[index]);
               },
             ),
             FlatButton(
-              child: Icon(
-                Icons.favorite,
-                color: foodProvider.fullCourseList[index].isFavourited == false
-                    ? Colors.black
-                    : Colors.red,
+              child: ValueListenableBuilder(
+                valueListenable: localDB.favBox.listenable(),
+                builder: (context, box, widget) {
+                  return Icon(
+                    Icons.favorite,
+                    color:
+                        box.get(foodProvider.fullCourseList[index].name) == true
+                            ? Colors.red
+                            : Colors.grey,
+                  );
+                },
               ),
               onPressed: () {
                 foodProvider.toggleFav(

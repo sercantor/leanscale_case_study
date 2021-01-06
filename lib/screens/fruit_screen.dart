@@ -2,11 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:case_study_leanscale/providers/basket_provider.dart';
 import 'package:case_study_leanscale/providers/food_provider.dart';
 import 'package:case_study_leanscale/screens/detail_screen.dart';
+import 'package:case_study_leanscale/services/db/localdb.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class FruitScreen extends StatelessWidget {
   static const route = '/fruit';
+  final localDB = LocalDBService();
+
   @override
   Widget build(BuildContext context) {
     final foodProvider = Provider.of<FoodProvider>(context);
@@ -46,16 +50,20 @@ class FruitScreen extends StatelessWidget {
             FlatButton(
               child: Icon(Icons.add),
               onPressed: () {
-                basketProvider.addToBasket(
-                    foodProvider.fruitList[index], index);
+                basketProvider.addToBasket(foodProvider.fruitList[index]);
               },
             ),
             FlatButton(
-              child: Icon(
-                Icons.favorite,
-                color: foodProvider.fruitList[index].isFavourited == false
-                    ? Colors.black
-                    : Colors.red,
+              child: ValueListenableBuilder(
+                valueListenable: localDB.favBox.listenable(),
+                builder: (context, box, widget) {
+                  return Icon(
+                    Icons.favorite,
+                    color: box.get(foodProvider.fruitList[index].name) == true
+                        ? Colors.red
+                        : Colors.grey,
+                  );
+                },
               ),
               onPressed: () {
                 foodProvider.toggleFav(foodProvider.fruitList[index], index);

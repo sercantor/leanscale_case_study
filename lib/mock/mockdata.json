@@ -5,7 +5,6 @@
         "quantity": 20,
         "category": "Vegetable",
         "price": 10,
-        "is_favourited": false,
         "imageURL": "https://chefsmandala.com/wp-content/uploads/2018/03/Broccoli-400x400.jpg"
     },
     
@@ -15,7 +14,6 @@
         "quantity": 4,
         "category": "FullCourse",
         "price": 20,
-        "is_favourited": false,
         "imageURL": "https://b.zmtcdn.com/data/pictures/8/18511638/ab596830303a5f66d87d9b0a4466ed40_o2_featured_v2.jpg"
     },
     
@@ -25,7 +23,6 @@
         "quantity": 10,
         "category": "Fruit",
         "price": 4,
-        "is_favourited": false,
         "imageURL": "https://balidirectstore.com/wp-content/uploads/2016/12/bali-direct-raspberries-400x400-copy.jpg"
     },
 
@@ -35,7 +32,6 @@
         "quantity": 100,
         "category": "Fruit",
         "price": 3,
-        "is_favourited": false,
         "imageURL": "https://dljproduce.com/wp-content/uploads/2019/05/1-1.jpg"
     },
 
@@ -45,7 +41,6 @@
         "quantity": 50,
         "category": "Vegetable",
         "price": 7,
-        "is_favourited": false,
         "imageURL": "https://gudree.com/wp-content/uploads/2019/06/tomatoes-400x400.jpg"
     },
 
@@ -55,7 +50,6 @@
         "quantity": 31,
         "category": "Fruit",
         "price": 3,
-        "is_favourited": false,
         "imageURL": "https://freepngimg.com/thumb/cherry/32667-5-black-cherry-transparent-background.png"
     },
     
@@ -65,7 +59,6 @@
         "quantity": 20,
         "category": "Drink",
         "price": 15,
-        "is_favourited": false,
         "imageURL": "https://s3.amazonaws.com/images.hamlethub.com/hh20mediafolder/2786/201501/coffee.jpg"
     },
     {
@@ -74,7 +67,6 @@
         "quantity": 120,
         "category": "Drink",
         "price": 1,
-        "is_favourited": false,
         "imageURL": "https://sw-cdn.selinawamucii.com/wp-content/uploads/2018/11/Rwanda-Tea_selina-wamucii.jpg"
     },
     {
@@ -83,7 +75,6 @@
         "quantity": 1000,
         "category": "Drink",
         "price": 7,
-        "is_favourited": false,
         "imageURL": "https://www.firin.dayneks.net/tr/site/show_image/upload/editor/cache/data/ckfinder/images/urun/icecekler/coca-cola-2-400x400.jpg"
     },
     {
@@ -92,7 +83,6 @@
         "quantity": 19,
         "category": "Meat",
         "price": 26,
-        "is_favourited": false,
         "imageURL": "https://www.elmasokagi.com/aytac-dana-kangal-sucuk-kg-sarkuteri-aytac-22883-29-O.png"
     },
     {
@@ -101,7 +91,6 @@
         "quantity": 10,
         "category": "Meat",
         "price": 49,
-        "is_favourited": false,
         "imageURL": "https://hips.hearstapps.com/wdy.h-cdn.co/assets/cm/15/09/54ef920a9f4cf_-_mediterranean-herb-rubbed-lamb-chops-recipe-wdy0813-xl.jpg"
     },
     {
@@ -110,7 +99,6 @@
         "quantity": 30,
         "category": "Meat",
         "price": 60,
-        "is_favourited": false,
         "imageURL": "https://cdn.shopify.com/s/files/1/0271/1027/7165/products/rib-eye-steak-kerrigans-meats-irish-lean_600x.jpg?v=1576148444"
     },
     {
@@ -119,7 +107,6 @@
         "quantity": 50,
         "category": "FullCourse",
         "price": 30,
-        "is_favourited": false,
         "imageURL": "https://sushi-manga.com/images/urun/5eda1837a7fed.jpg"
     },
     {
@@ -128,7 +115,6 @@
         "quantity": 100,
         "category": "Drink",
         "price": 4,
-        "is_favourited": false,
         "imageURL": "https://www.fiyatsor.net/assets/front/resim/urun/sutas-ayran-5e1e054650d5c.jpg"
     },
     {
@@ -137,7 +123,6 @@
         "quantity": 20,
         "category": "FullCourse",
         "price": 20,
-        "is_favourited": false,
         "imageURL": "https://en.luviunlumamuller.com/proxy/400/400/1/uploads/images/pages/p1dik8p3ca1r75imn17sqj8o1las4.jpg"
     },
     {
@@ -146,7 +131,6 @@
         "quantity": 4,
         "category": "Vegetable",
         "price": 13,
-        "is_favourited": false,
         "imageURL": "https://www.southerncravings.com/wp-content/uploads/2020/01/Roasted-Asparagus-with-Garlic-1-400x400.jpeg"
     },
     {
@@ -155,7 +139,6 @@
         "quantity": 50,
         "category": "Vegetable",
         "price": 10,
-        "is_favourited": false,
         "imageURL": "https://assetsds.cdnedge.bluemix.net/sites/default/files/styles/big_6/public/feature/images/beets.jpg?itok=8Ix9F0TG"
     },
     {
@@ -164,7 +147,6 @@
         "quantity": 20,
         "category": "Vegetable",
         "price": 8,
-        "is_favourited": false,
         "imageURL": "https://cdn.storehippo.com/s/5b77e8271ee071710db682fb/ms.products/5c0e40031da02e0e3f3c10b7/images/5c0e40031da02e0e3f3c10b8/5c0e3f94b3b1230e3ddd020b/webp/5c0e3f94b3b1230e3ddd020b-480x480.jpg"
     },
     {
@@ -173,7 +155,6 @@
         "quantity": 50,
         "category": "Vegetable",
         "price": 5,
-        "is_favourited": false,
         "imageURL": "https://cdn.picpng.com/cauliflower/shape-cauliflower-28058.png"
     },
     {
@@ -182,7 +163,6 @@
         "quantity": 20,
         "category": "FullCourse",
         "price": 8,
-        "is_favourited": false,
         "imageURL": "https://thehiddenveggies.com/wp-content/uploads/2019/02/vegan-mac-and-cheese.jpg"
     },
     {
@@ -191,7 +171,6 @@
         "quantity": 30,
         "category": "FullCourse",
         "price": 40,
-        "is_favourited": false,
         "imageURL": "https://www.thegraciouspantry.com/wp-content/uploads/2012/06/clean-eating-garlic-lime-shrimp-recipe-v-1--400x400.jpg"
     },
     {
@@ -200,7 +179,6 @@
         "quantity": 50,
         "category": "Vegetable",
         "price": 6,
-        "is_favourited": false,
         "imageURL": "https://cdn.shopify.com/s/files/1/1422/4588/products/Bunch_of_Celery.jpg?v=1552983820"
     }
 ]

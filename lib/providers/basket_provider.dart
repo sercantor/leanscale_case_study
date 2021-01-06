@@ -9,8 +9,15 @@ class BasketProvider with ChangeNotifier {
   List<BasketItem> get basket => _basket;
   int get basketLength => _basketLength;
 
-  void addToBasket(Food val, int index) {
-    if (_basket.every((element) => element.food != val)) {
+  void addToBasket(Food val) {
+    int index = 0;
+    _basket.forEach((basketItem) {
+      if (basketItem.food == val) {
+        index = _basket.indexOf(basketItem);
+      }
+    });
+
+    if (_basket.every((basketItem) => basketItem.food != val)) {
       _basket.add(BasketItem(food: val, quantity: 1));
     } else {
       _basket[index] =
