@@ -12,3 +12,5 @@ I have used Hive as my local data storage solution, I believe it is superior to 
 
 TODO
 - [ ] Checking food category makes me repeat myself, but I don't know how to map JSON data to enum
+- [ ] The design could be better, I just went with default stuff
+- [ ] Would've been nice if the app had some sort of authentication process
